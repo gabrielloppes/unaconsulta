@@ -1,53 +1,29 @@
-<!-- Navbar Section -->
-
-<nav>
-
-  <div class="nav-container">
-    <%= link_to "/", class: "navbar-brand-home" do %>
+<header>
+  <nav>
+    <div class="logo">
+      <%= link_to "/", class: "navbar-brand-home" do %>
       <%= image_tag "logo-una-consulta.svg" %>
-    <% end %>
-    <ul>
-      <% if user_signed_in? %>
-
-      <!-- Avatar -->
-
-      <li class="nav-item dropdown">
-        <% if current_user&.photo.attached? %>
-
-          <img class="avatar avatar-xs dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" src="<%= cl_image_path current_user.photo.key %>" />
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-            <a class="dropdown-item" href="/user_reviews">My Reviews</a>
-            <a class="dropdown-item" href="/profile">Profile</a>
-            <a class="dropdown-item" href="/users/sign_out" data-method="delete">Log Out</a>
-          </div>
-        <% elsif current_user.facebook_picture_url %>
-          <img class="avatar avatar-xs dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" src="<%= cl_image_path current_user.facebook_picture_url %>" />
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-            <a class="dropdown-item" href="/user_reviews">My Reviews</a>
-            <a class="dropdown-item" href="/profile">Profile</a>
-            <a class="dropdown-item" href="/users/sign_out" data-method="delete">Log Out</a>
-          </div>
-        <% else %>
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false" src="https://avatars1.githubusercontent.com/u/302001?s=88&v=4" />
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-            <a class="dropdown-item" href="/user_reviews">My Reviews</a>
-            <a class="dropdown-item" href="/profile">Profile</a>
-            <a class="dropdown-item" href="/users/sign_out" data-method="delete">Log Out</a>
-          </div>
-        <% end %>
-
-      </li>
-      <% else %>
-        <%= link_to "LOG IN", new_user_session_path, class: "btn-sign-in" %>
-        <%= link_to "SIGN UP", new_user_registration_path , class: "btn-sign-up" %>
       <% end %>
+    </div>
+    <% if user_signed_in? %>
+    <ul class="nav-item">
+      <% if current_user&.photo.attached? || current_user.facebook_picture_url  %>
+      <li class="nav-link" href="/user_reviews">My Reviews</li>
+      <li class="nav-link" href="/profile">Profile</li>
+      <li class="nav-link" href="/users/sign_out" data-method="delete">Log Out</li>
     </ul>
-  </div>
-</nav>
+    <% end %>
+    <% else %>
+    <div class="btn-group">
+      <%= link_to "Log In", new_user_session_path, class: "btn-sign-in" %>
+      <%= link_to "Sign Up", new_user_registration_path , class: "btn-sign-up" %>
+      <% end %>
+    </div>
+  </nav>
+</header>
 
+<!-- <ul class="nav-item"> 
+  <a class="nav-link" href="/user_reviews">My Reviews</a>
+  <a class="nav-link" href="/profile">Profile</a>
+  <a class="nav-link" href="/users/sign_out" data-method="delete">Log Out</a>
+</ul> -->
