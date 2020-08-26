@@ -1,21 +1,28 @@
-<main>
-  <!-- Hero section -->
-  <div class="header-content">
-    <h1>Find a property you love</h1>
-    <p>Find your next place to stay.</p>
-  </div>
-  <!-- Search form section -->
-  <div class="search-form">
-    <div class="form-group">
-      <%= form_tag nil, id: "main-form", method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "search-input",
-      placeholder: "Type a property address", required: true %>
-      <button id="find" class="btn-find">
-        <i class="fas fa-search"></i>
-      </button>
-      <% end %>
+<div class="grid-container-home">
+  <main>
+    <!-- Hero section -->
+    <div class="header-content">
+      <h1>Find a property you love</h1>
+      <p>Find your next place to stay.</p>
+      <div class="search-form">
+        <div class="search-bar">
+          <%= form_tag properties_find_path, id: "review-form", method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "user_input",
+          onchange: "this.form.submit();",
+          placeholder: "Find your next place to stay"
+          %>
+          <button class="btn-find-2">
+            <i class="fas fa-search"></i>
+          </button>
+          <% end %>
+        </div>
+      </div>
     </div>
+    <!-- Search form section -->
+    
   </div>
-</div>
 </main>
+</div>
 

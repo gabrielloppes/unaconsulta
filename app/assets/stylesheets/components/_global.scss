@@ -1,12 +1,8 @@
 // Import your components CSS files here.
 @import "alert";
 @import "navbar_home";
-// @import "footer";
 @import "card";
-@import "cards";
-// @import "banner";
 @import "buttons";
-@import "map";
 @import "card-review";
 @import "signin";
 @import "signup";
@@ -16,20 +12,19 @@
 /* Google Fonts - Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap");
 
-/* General website CSS Reset */
-*{
+body, p, h1, ul, li {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
-  background: #f8f8f8;
 }
 
-ul,
 li {
-  text-decoration: none;
   list-style: none;
 }
 
 a {
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
 }

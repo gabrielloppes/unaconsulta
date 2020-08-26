@@ -1,29 +1,31 @@
-<header>
-  <nav>
-    <div class="logo">
-      <%= link_to "/", class: "navbar-brand-home" do %>
+<div class="grid-container-menu">
+  <header class="header">
+    <a href="/" class="logo">
       <%= image_tag "logo-una-consulta.svg" %>
-      <% end %>
-    </div>
-    <% if user_signed_in? %>
-    <ul class="nav-item">
-      <% if current_user&.photo.attached? || current_user.facebook_picture_url  %>
-      <li class="nav-link" href="/user_reviews">My Reviews</li>
-      <li class="nav-link" href="/profile">Profile</li>
-      <li class="nav-link" href="/users/sign_out" data-method="delete">Log Out</li>
-    </ul>
-    <% end %>
-    <% else %>
-    <div class="btn-group">
-      <%= link_to "Log In", new_user_session_path, class: "btn-sign-in" %>
-      <%= link_to "Sign Up", new_user_registration_path , class: "btn-sign-up" %>
-      <% end %>
-    </div>
-  </nav>
-</header>
-
-<!-- <ul class="nav-item"> 
-  <a class="nav-link" href="/user_reviews">My Reviews</a>
-  <a class="nav-link" href="/profile">Profile</a>
-  <a class="nav-link" href="/users/sign_out" data-method="delete">Log Out</a>
-</ul> -->
+    </a>
+    <nav>
+      <ul>
+        <% if user_signed_in? %>
+        <% if current_user&.photo.attached? || current_user.facebook_picture_url  %>
+        <li>
+          <a href="/user_reviews" class="nav-link">My Reviews</a>
+        </li>
+        <li>
+          <a href="/profile" class="nav-link">Profile</a>
+        </li>
+        <li>
+          <a href="/users/sign_out" class="nav-link" data-method="delete">Log Out</a>
+        </li>
+        <% end %>
+        <% else %>
+        <li>
+          <%= link_to "Log In", new_user_session_path, class: "btn-sign-in" %>
+        </li>
+        <li>
+          <%= link_to "Sign Up", new_user_registration_path , class: "btn-sign-up" %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+  </header>
+</div>

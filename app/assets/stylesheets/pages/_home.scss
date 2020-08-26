@@ -1,0 +1,9 @@
+.grid-container-home {
+  display: grid;
+  grid-template-columns: minmax(120px, 500px) 1fr;
+  grid-template-areas: "main image";
+}
+
+.header-content {
+  grid-area: main;
+}
