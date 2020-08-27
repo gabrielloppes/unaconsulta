@@ -1,28 +1,26 @@
-<div class="grid-container-home">
-  <main>
-    <!-- Hero section -->
-    <div class="header-content">
-      <h1>Find a property you love</h1>
-      <p>Find your next place to stay.</p>
+<main class="header-content">
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Find your next <span>property</span></h1>
+      <p>Find a place to stay or leave a review.</p>
       <div class="search-form">
-        <div class="search-bar">
-          <%= form_tag properties_find_path, id: "review-form", method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
-          class: "user_input",
-          onchange: "this.form.submit();",
-          placeholder: "Find your next place to stay"
-          %>
-          <button class="btn-find-2">
-            <i class="fas fa-search"></i>
-          </button>
-          <% end %>
-        </div>
+        <%= form_tag properties_find_path, id: "review-form", class: "input-form", method: :get do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "user_input",
+        onchange: "this.form.submit();",
+        placeholder: "Find your next place to stay"
+        %>
+        <button class="btn-find">
+          <i class="fas fa-search"></i>
+        </button>
+        <% end %>
       </div>
     </div>
-    <!-- Search form section -->
     
   </div>
-</main>
+  <%= image_tag "navigation-walking.svg" %>
+  <!-- <%= image_tag "navigation.svg" %> -->
 </div>
-
+<!-- Search form section -->
+</main>

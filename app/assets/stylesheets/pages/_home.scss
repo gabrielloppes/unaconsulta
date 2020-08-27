@@ -1,9 +1,69 @@
-.grid-container-home {
+// GRID DEFINITION
+.header-content {
   display: grid;
-  grid-template-columns: minmax(120px, 500px) 1fr;
   grid-template-areas: "main image";
+  grid-template-columns: 55% auto;
+  padding: 6em 15em;
+  margin: 0 6em;
+  align-items: center;
+  justify-content: center;
 }
 
-.header-content {
+.user_input {
+  padding: 10px;
+  font-family: "Montserrat";
+  font-weight: 500;
+  outline: none;
+  border: 2px solid lightgray;
+}
+
+.btn-find {
+  background-color: #4717b0;
+  padding: 0 20px;
+  margin-left: 5px;
+  border-radius: 3px;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+
+.header-content img {
+  grid-area: image;
+  width: 700px;
+  margin: 0 6rem;
+}
+
+.search-form {
   grid-area: main;
+}
+
+// SPACING DEFINITION
+.input-form {
+  display: flex;
+  width: 400px;
+}
+
+.header-content .hero {
+  grid-area: main;
+  justify-content: center;
+}
+
+.header-content .hero h1 + p {
+  line-height: 50px;
+}
+
+.header-content .hero h1 {
+  font-family: "Montserrat";
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.header-content .hero h1 span {
+  color: #20b086;
+}
+
+.header-content .hero p {
+  font-family: "Montserrat";
+  font-size: 1.2rem;
+  font-weight: 400;
 }

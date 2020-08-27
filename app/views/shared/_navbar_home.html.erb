@@ -5,25 +5,24 @@
     </a>
     <nav>
       <ul>
+        <!-- TODO: Treat the user if dont have a -->
         <% if user_signed_in? %>
-        <% if current_user&.photo.attached? || current_user.facebook_picture_url  %>
-        <li>
-          <a href="/user_reviews" class="nav-link">My Reviews</a>
-        </li>
-        <li>
-          <a href="/profile" class="nav-link">Profile</a>
-        </li>
-        <li>
-          <a href="/users/sign_out" class="nav-link" data-method="delete">Log Out</a>
-        </li>
-        <% end %>
+          <li>
+            <a href="/user_reviews" class="nav-link">My Reviews</a>
+          </li>
+          <li>
+            <a href="/profile" class="nav-link">Profile</a>
+          </li>
+          <li>
+            <a href="/users/sign_out" class="nav-link" data-method="delete">Log Out</a>
+          </li>
         <% else %>
-        <li>
-          <%= link_to "Log In", new_user_session_path, class: "btn-sign-in" %>
-        </li>
-        <li>
-          <%= link_to "Sign Up", new_user_registration_path , class: "btn-sign-up" %>
-        </li>
+          <li>
+            <%= link_to "Log In", new_user_session_path, class: "btn-sign-in" %>
+          </li>
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path , class: "btn-sign-up" %>
+          </li>
         <% end %>
       </ul>
     </nav>
