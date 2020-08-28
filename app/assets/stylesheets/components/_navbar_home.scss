@@ -22,15 +22,15 @@
 
 .header nav a {
   display: block;
+  text-rendering: optimizeLegibility;
   padding: 10px;
-  color: #000;
-  font-weight: bold;
+  color: #4717b0;
 }
 
 .header nav ul li {
-  font-family: 'Montserrat';
-  font-weight: 700;
   text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Poppins';
 }
 
 .header li + li {
@@ -39,5 +39,9 @@
 
 .logo img {
   max-width: 100%;
+  width: 150px;
+}
+
+.logo {
   width: 150px;
 }

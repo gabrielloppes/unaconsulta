@@ -2,11 +2,9 @@
 .header-content {
   display: grid;
   grid-template-areas: "main image";
-  grid-template-columns: 55% auto;
-  padding: 6em 15em;
-  margin: 0 6em;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 3fr auto;
+  padding: 1rem 10rem;
+  place-items: center;
 }
 
 .user_input {
@@ -25,16 +23,17 @@
   color: #fff;
   outline: none;
   border: none;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.btn-find:hover {
+  background: #7952cf;
 }
 
 .header-content img {
   grid-area: image;
-  width: 700px;
-  margin: 0 6rem;
-}
-
-.search-form {
-  grid-area: main;
+  width: 800px;
 }
 
 // SPACING DEFINITION
@@ -45,25 +44,22 @@
 
 .header-content .hero {
   grid-area: main;
-  justify-content: center;
-}
-
-.header-content .hero h1 + p {
-  line-height: 50px;
+  max-width: 85%;
 }
 
 .header-content .hero h1 {
-  font-family: "Montserrat";
+  font-family: "Poppins";
   font-size: 3rem;
   font-weight: 700;
-}
-
-.header-content .hero h1 span {
-  color: #20b086;
+  color: #231f20;
+  text-rendering: optimizeLegibility;
 }
 
 .header-content .hero p {
   font-family: "Montserrat";
   font-size: 1.2rem;
   font-weight: 400;
+  // line-height: 2px;
+  max-width: 85%;
+  margin: 15px 0;
 }

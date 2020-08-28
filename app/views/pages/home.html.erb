@@ -1,8 +1,8 @@
 <main class="header-content">
   <div class="hero">
     <div class="hero-content">
-      <h1>Find your next <span>property</span></h1>
-      <p>Find a place to stay or leave a review.</p>
+      <h1>Find properties or leave reviews</h1>
+      <p>Within minutes you can find your next place to stay or leave a review.</p>
       <div class="search-form">
         <%= form_tag properties_find_path, id: "review-form", class: "input-form", method: :get do %>
         <%= text_field_tag :query,
@@ -12,15 +12,11 @@
         placeholder: "Find your next place to stay"
         %>
         <button class="btn-find">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-arrow-right"></i>
         </button>
         <% end %>
       </div>
     </div>
-    
   </div>
-  <%= image_tag "navigation-walking.svg" %>
-  <!-- <%= image_tag "navigation.svg" %> -->
-</div>
-<!-- Search form section -->
+  <%= image_tag "office_work_green.svg" %>
 </main>
