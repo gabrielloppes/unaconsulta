@@ -12,28 +12,40 @@
   font-family: "Montserrat";
   font-weight: 500;
   outline: none;
-  border: 2px solid lightgray;
+  border: 2px solid lightgrey;
+  background: #fff;
+}
+
+.ap-input-icon svg {
+  fill: #7952cf;
 }
 
 .btn-find {
-  background-color: #4717b0;
   padding: 0 20px;
   margin-left: 5px;
   border-radius: 3px;
-  color: #fff;
+  color: #7952cf;
   outline: none;
-  border: none;
+  background: #fff;
+  border: 2px solid lightgray;
   cursor: pointer;
   transition: 1s;
 }
 
 .btn-find:hover {
-  background: #7952cf;
+  background: #4717b0;
+  border: 2px solid #4717b0;
+  color: #fff;
 }
 
 .header-content img {
   grid-area: image;
   width: 800px;
+}
+
+.header-content .hero {
+  grid-area: main;
+  max-width: 85%;
 }
 
 // SPACING DEFINITION
@@ -42,24 +54,18 @@
   width: 400px;
 }
 
-.header-content .hero {
-  grid-area: main;
-  max-width: 85%;
-}
-
 .header-content .hero h1 {
-  font-family: "Poppins";
+  font-family: "Montserrat";
   font-size: 3rem;
   font-weight: 700;
-  color: #231f20;
+  color: #7952cf;
   text-rendering: optimizeLegibility;
 }
 
 .header-content .hero p {
   font-family: "Montserrat";
   font-size: 1.2rem;
-  font-weight: 400;
-  // line-height: 2px;
+  font-weight: 500;
   max-width: 85%;
   margin: 15px 0;
 }

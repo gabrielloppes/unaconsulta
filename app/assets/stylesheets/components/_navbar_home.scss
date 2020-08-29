@@ -11,7 +11,7 @@
   padding: 30px 120px;
   display: grid;
   grid-template-columns: 1fr auto;
-  background: rgba(255, 255, 255, 1.0);
+  // background: rgba(255, 255, 255, 1.0);
   align-items: center;
 }
 
@@ -29,8 +29,8 @@
 
 .header nav ul li {
   text-transform: uppercase;
-  font-weight: 500;
-  font-family: 'Poppins';
+  font-family: 'Montserrat';
+  font-weight: 600;
 }
 
 .header li + li {

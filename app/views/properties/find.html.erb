@@ -1,47 +1,45 @@
-<div class="grid">
-  <main class="find-review">
-    <% if @properties.size == 0 %>
-    <div class="no-reviews">
-      <h4>No reviews for "<%= @query %>"</h4>
-      <%= link_to "Review it →", {action: "create",  query: params[:query] }, method: :post,  class: "btn-review"  %>
-    </div>
-    <% else %>
-    <h5>Showing <%= @properties.size %> <%= "result".pluralize(@properties.size) %> for your search</h5>
+<main class="find-review">
+  <% if @properties.size == 0 %>
+  <div class="no-reviews">
+    <h3>There's no reviews for <%= @query %></h3>
+    <%= link_to "Review it →", {action: "create",  query: params[:query] }, method: :post,  class: "btn-review"  %>
+  </div>
+  <% else %>
+  <h5>Showing <%= @properties.size %> <%= "result".pluralize(@properties.size) %> for <%= @query %></h5>
+  <% end %>
+  <section class="search-bar">
+    <%= form_tag properties_find_path, id: "review-form", method: :get do %>
+    <%= text_field_tag :query, params[:query], class: "user_input", onchange: "this.form.submit();",
+    placeholder: "Find a property"
+    %>
+    <button class="btn-find-2">
+      <i class="fas fa-search"></i>
+    </button>
     <% end %>
-    <section class="search-bar">
-      <%= form_tag properties_find_path, id: "review-form", method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "user_input", onchange: "this.form.submit();",
-      placeholder: "Find a property"
-      %>
-      <button class="btn-find-2">
-        <i class="fas fa-search"></i>
-      </button>
+  </section>
+  <section class="reviews-display">
+    <% if @properties.size > 0 %>
+    <div class="cards-container">
+      <% @properties.each do |prop| %>
+      <% if prop&.reviews&.last&.photos&.attached? %>
+      <%= cl_image_tag(prop.reviews.last.photos&.last.key, crop: :fill, width: 170, height: 150) %>
+      <% else %>
+      <%#= cl_image_tag(review.photos&.last.key, crop: :fit, width: 200) %>
       <% end %>
-    </section>
-    <section class="reviews-display">
-      <% if @properties.size > 0 %>
-      <div class="cards-container">
-        <% @properties.each do |prop| %>
-        <% if prop&.reviews&.last&.photos&.attached? %>
-          <%= cl_image_tag(prop.reviews.last.photos&.last.key, crop: :fill, width: 170, height: 150) %>
+      <div class="card-section">
+        <%= prop.address %>
+        <% if prop.reviews.count > 0 %>
+        Last reviewed on <%= prop&.reviews&.last&.created_at&.strftime("%d-%m-%Y") %>
         <% else %>
-          <%#= cl_image_tag(review.photos&.last.key, crop: :fit, width: 200) %>
-        <% end %>
-        <div class="card-section">
-          <%= prop.address %>
-          <% if prop.reviews.count > 0 %>
-            Last reviewed on <%= prop&.reviews&.last&.created_at&.strftime("%d-%m-%Y") %>
-          <% else %>
-            There's no reviews yet
-          <% end %>
-        </div>
+        There's no reviews yet
         <% end %>
       </div>
-    </section>
-    <% end %>
-    <section class="map-find-page-sidenav" id="map"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>">
+      <% end %>
+    </div>
   </section>
+  <% end %>
+  <section class="map-find-page-sidenav" id="map"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_KEY'] %>">
+</section>
 </main>
-</div>
