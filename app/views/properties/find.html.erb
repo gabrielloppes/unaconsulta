@@ -1,9 +1,9 @@
 <main class="find-review">
   <% if @properties.size == 0 %>
-  <div class="no-reviews">
+  <section class="no-reviews">
     <h3>There's no reviews for <%= @query %></h3>
     <%= link_to "Review it →", {action: "create",  query: params[:query] }, method: :post,  class: "btn-review"  %>
-  </div>
+  </section>
   <% else %>
   <h5>Showing <%= @properties.size %> <%= "result".pluralize(@properties.size) %> for <%= @query %></h5>
   <% end %>
